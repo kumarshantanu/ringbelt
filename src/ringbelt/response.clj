@@ -62,10 +62,13 @@
   [response]
   (let [body (:body response)]
     (if (string? body)
-      (content-type response content-text)
+      (-> response
+        (content-type content-text)
+        status)
       (-> response
         (assoc :body (stringer/strcat body))
-        (content-type content-text)))))
+        (content-type content-text)
+        status))))
 
 
 (defn json-response
@@ -75,7 +78,8 @@
     (let [data (:data response)]
       (-> response
         (assoc :body (cheshire/generate-string data))
-        (content-type content-json)))
+        (content-type content-json)
+        status))
     (u/expected ":data key in response map" response)))
 
 
