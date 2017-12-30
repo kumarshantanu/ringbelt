@@ -9,5 +9,22 @@
 
 (ns ringbelt.request-test
   (:require
-    [ringbelt.request :as request]
+    [ringbelt.request  :as request]
+    [ring.mock.request :as mock]
     [clojure.test :refer [deftest is testing]]))
+
+
+(deftest test-read-json-body
+  (is (= {"foo" 10}
+        (-> (mock/request :post "/api/endpoint")
+          (mock/json-body {:foo 10})
+          request/read-json-body)))
+  (is (= nil
+        (-> (mock/request :post "/api/endpoint")
+          (mock/json-body nil)
+          request/read-json-body)))
+  (is (thrown? IllegalArgumentException
+        (-> (mock/request :post "/api/endpoint")
+          (mock/content-type "application/json")
+          (mock/body "foo")
+          request/read-json-body))))

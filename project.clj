@@ -10,7 +10,9 @@
                 *unchecked-math* :warn-on-boxed}
   :min-lein-version "2.7.1"
   :pedantic? :abort
-  :profiles {:provided {:dependencies [[org.clojure/clojure "1.8.0"]]}
+  :profiles {:dev {:dependencies [[ring/ring-mock "0.3.2"
+                                   :exclusions [org.clojure/clojure]]]}
+             :provided {:dependencies [[org.clojure/clojure "1.8.0"]]}
              :c17 {:dependencies [[org.clojure/clojure "1.7.0"]]}
              :c18 {:dependencies [[org.clojure/clojure "1.8.0"]]}
              :c19 {:dependencies [[org.clojure/clojure "1.9.0"]]}
