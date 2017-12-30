@@ -7,7 +7,7 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.request-test
+(ns ringbelt.request-test
   (:require
-    [ringlet.request :as request]
+    [ringbelt.request :as request]
     [clojure.test :refer [deftest is testing]]))

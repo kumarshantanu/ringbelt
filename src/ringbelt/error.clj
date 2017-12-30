@@ -7,10 +7,10 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.error
+(ns ringbelt.error
   "An error handler is a function `(fn [error]) -> ring-response-map` - the argument error is typically a map."
   (:require
-    [ringlet.response :as response]))
+    [ringbelt.response :as response]))
 
 
 (defn ring-escape-middleware

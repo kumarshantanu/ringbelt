@@ -1,4 +1,4 @@
-# ringlet
+# ringbelt
 
 Utility tool belt for [Ring](https://github.com/ring-clojure) web applications.
 
@@ -10,13 +10,13 @@ _Early days, API may change across versions._
 ## Rationale
 
 Ring is a great abstraction and a library, but integrating a web application with Ring takes a lot of plumbing
-across various concerns. In many cases that plumbing is _ad hoc_ and dominates business logic. Ringlet offers
+across various concerns. In many cases that plumbing is _ad hoc_ and dominates business logic. Ringbelt offers
 utility functions to parse requests, generate responses and translate errors between web and non-web layers.
 
 
 ## Usage
 
-Clojars coordinates: `[ringlet "0.1.0-SNAPSHOT"]` (Not on Clojars yet)
+Clojars coordinates: `[ringbelt "0.1.0-SNAPSHOT"]` (Not on Clojars yet)
 
 See [documentation](doc/intro.md) for usage.
 

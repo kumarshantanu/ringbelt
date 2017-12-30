@@ -7,10 +7,10 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.request
+(ns ringbelt.request
   (:require
     [cheshire.core :as cheshire]
-    [ringlet.util  :as util])
+    [ringbelt.util :as util])
   (:import
     [com.fasterxml.jackson.core JsonParseException]))
 

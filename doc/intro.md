@@ -1,16 +1,16 @@
-# Introduction to ringlet
+# Introduction to Ringbelt
 
 ## Namespaces
 
 ```clojure
-(require '[ringlet.error    :as error])
-(require '[ringlet.request  :as request]
-(require '[ringlet.response :as response]
+(require '[ringbelt.error    :as error])
+(require '[ringbelt.request  :as request]
+(require '[ringbelt.response :as response]
 ```
 
 ## Request parsing
 
-Ringlet supports JSON request body parsing out of the box. See example below:
+Ringbelt supports JSON request body parsing out of the box. See example below:
 
 ```clojure
 (request/read-json-body request)
@@ -51,7 +51,7 @@ There are several utility functions to easily generate Ring response maps.
 
 #### JSON response
 
-Ringlet has out of the box support for emitting JSON response.
+Ringbelt has out of the box support for emitting JSON response.
 
 ```clojure
 => (response/json-response {:status 200 :data {:foo 10 :bar 20}})
@@ -88,7 +88,7 @@ Ringlet has out of the box support for emitting JSON response.
 
 ## Error translation
 
-Non-web errors and failures need to be returned as Ring responses at the web layer. Ringlet introduces the
+Non-web errors and failures need to be returned as Ring responses at the web layer. Ringbelt introduces the
 _error-handler_ abstraction, which is a function `(fn [error]) -> ring-response`, and provides utility
 middleware to extend the capability of error-handler.
 

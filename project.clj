@@ -1,6 +1,6 @@
-(defproject ringlet "0.1.0-SNAPSHOT"
+(defproject ringbelt "0.1.0-SNAPSHOT"
   :description "Utility tool belt for Ring web applications"
-  :url "https://github.com/kumarshantanu/ringlet"
+  :url "https://github.com/kumarshantanu/ringbelt"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[cheshire  "5.8.0"]

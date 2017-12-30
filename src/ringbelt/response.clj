@@ -7,12 +7,12 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.response
+(ns ringbelt.response
   (:require
     [clojure.string :as str]
     [cheshire.core  :as cheshire]
     [stringer.core  :as stringer]
-    [ringlet.util   :as u]))
+    [ringbelt.util  :as u]))
 
 
 ;; ----- Generic response -----

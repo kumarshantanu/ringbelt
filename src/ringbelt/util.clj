@@ -7,7 +7,7 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.util
+(ns ringbelt.util
   (:require
     [stringer.core :as stringer])
   (:import

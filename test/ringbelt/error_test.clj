@@ -7,10 +7,10 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns ringlet.error-test
+(ns ringbelt.error-test
   (:require
-    [ringlet.error    :as error]
-    [ringlet.response :as response]
+    [ringbelt.error    :as error]
+    [ringbelt.response :as response]
     [clojure.test :refer [deftest is testing]]))
 
 
