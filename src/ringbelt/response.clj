@@ -176,22 +176,26 @@
 
 
 (defn text-405
-  "Given a method keyword and a comma-separated supported-method names as string, return an HTTP 405 text response."
-  ([method supported-methods-str]
-   (text-response {:status 405
-                   :headers {"Allow" supported-methods-str}
-                   :body (stringer/strcat "405 HTTP Method '" (str/upper-case (u/as-str method))
-                           "' is not supported for this resource.
-Supported methods are: " supported-methods-str)}))
-  ([response method supported-methods-str]
-   (-> response
-     (assoc :status 405)
-     (assoc-in [:headers "Allow"] supported-methods-str)
-     (u/assoc-missing :body (stringer/strcat "405 HTTP Method '"
-                              (str/upper-case (u/as-str method))
-                              "' is not supported for this resource.
-Supported methods are: " supported-methods-str))
-     text-response)))
+  "Given a method keyword and allowed methods (comma-separated string or collection),
+  return an HTTP 405 text response."
+  ([method allow]
+   (let [allow-str (if (string? allow) allow (u/memoized-csuv allow))]
+     (text-response {:status 405
+                     :headers {"Allow" allow-str}
+                     :body (stringer/strcat "405 HTTP Method '"
+                             (str/upper-case (u/as-str method))
+                             "' is not supported for this resource.
+Supported methods are: " allow-str)})))
+  ([response method allow]
+   (let [allow-str (if (string? allow) allow (u/memoized-csuv allow))]
+    (-> response
+      (assoc :status 405)
+      (assoc-in [:headers "Allow"] allow-str)
+      (u/assoc-missing :body (stringer/strcat "405 HTTP Method '"
+                               (str/upper-case (u/as-str method))
+                               "' is not supported for this resource.
+Supported methods are: " allow-str))
+      text-response))))
 
 
 (defn text-500

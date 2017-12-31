@@ -119,17 +119,30 @@
 
 
 (deftest test-text-405
-  (is (= {:status 405
-          :body "405 HTTP Method 'POST' is not supported for this resource.\nSupported methods are: POST, PUT"
-          :headers {"Allow" "POST, PUT"
-                    "Content-Type" "text/plain"}}
-        (response/text-405 :post "POST, PUT")))
-  (is (= {:status 405
-          :body "405 HTTP Method 'DELETE' is not supported for this resource.\nSupported methods are: GET, POST"
-          :headers {"Allow" "GET, POST"
-                    "Content-Type" "text/plain"
-                    "X-Errorcode"  "A10"}}
-        (response/text-405 {:headers {"X-Errorcode"  "A10"}} :delete "GET, POST"))))
+  (testing "string allowed methods"
+    (is (= {:status 405
+            :body "405 HTTP Method 'GET' is not supported for this resource.\nSupported methods are: POST, PUT"
+            :headers {"Allow" "POST, PUT"
+                      "Content-Type" "text/plain"}}
+          (response/text-405 :get "POST, PUT")))
+    (is (= {:status 405
+            :body "405 HTTP Method 'DELETE' is not supported for this resource.\nSupported methods are: GET, POST"
+            :headers {"Allow" "GET, POST"
+                      "Content-Type" "text/plain"
+                      "X-Errorcode"  "A10"}}
+          (response/text-405 {:headers {"X-Errorcode"  "A10"}} :delete "GET, POST"))))
+  (testing "collection allowed methods"
+    (is (= {:status 405
+            :body "405 HTTP Method 'GET' is not supported for this resource.\nSupported methods are: POST, PUT"
+            :headers {"Allow" "POST, PUT"
+                      "Content-Type" "text/plain"}}
+          (response/text-405 :get [:post :put])))
+    (is (= {:status 405
+            :body "405 HTTP Method 'DELETE' is not supported for this resource.\nSupported methods are: GET, POST"
+            :headers {"Allow" "GET, POST"
+                      "Content-Type" "text/plain"
+                      "X-Errorcode"  "A10"}}
+          (response/text-405 {:headers {"X-Errorcode"  "A10"}} :delete [:get :post])))))
 
 
 (deftest test-text-500

@@ -9,7 +9,8 @@
 
 (ns ringbelt.util
   (:require
-    [stringer.core :as stringer])
+    [clojure.string :as string]
+    [stringer.core  :as stringer])
   (:import
     [clojure.lang Named]))
 
@@ -54,6 +55,14 @@
                ;; make lower-case before adding
                (.append b (Character/toLowerCase c)))
              (recur (unchecked-inc i)))))))))
+
+
+(def memoized-csuv
+  "Memoized version of comma seperated uper-case values."
+  (memoize (fn [coll]
+             (->> coll
+               (map (comp string/upper-case as-str))
+               (string/join ", ")))))
 
 
 ;; ----- updating maps -----
