@@ -1,4 +1,4 @@
-(defproject ringbelt "0.1.0-SNAPSHOT"
+(defproject ringbelt "0.1.0"
   :description "Utility tool belt for Ring web applications"
   :url "https://github.com/kumarshantanu/ringbelt"
   :license {:name "Eclipse Public License"
@@ -17,4 +17,5 @@
              :c18 {:dependencies [[org.clojure/clojure "1.8.0"]]}
              :c19 {:dependencies [[org.clojure/clojure "1.9.0"]]}
              :dln {:jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
-  :aliases {"clj-test" ["with-profile" "c17,dev:c18,dev:c19,dev" "test"]})
+  :aliases {"clj-test" ["with-profile" "c17,dev:c18,dev:c19,dev" "test"]}
+  :deploy-repositories [["releases" {:url "https://clojars.org" :creds :gpg}]])

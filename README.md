@@ -16,7 +16,7 @@ utility functions to parse requests, generate responses and translate errors bet
 
 ## Usage
 
-Clojars coordinates: `[ringbelt "0.1.0-SNAPSHOT"]` (Not on Clojars yet)
+Clojars coordinates: `[ringbelt "0.1.0"]`
 
 See [documentation](doc/intro.md) for usage.
 

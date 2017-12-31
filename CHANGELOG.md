@@ -1,6 +1,6 @@
 # ringbelt - TODO and Change Log
 
-## [WIP] 0.1.0 / 2017-December-??
+## 0.1.0 / 2017-December-31
 
 - Utility functions
   - Request parsing
