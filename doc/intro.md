@@ -83,6 +83,7 @@ Ringbelt has out of the box support for emitting JSON response.
 **Note**
 - `response` is Ring response map
 - `method` is string or keyword
+- `supported` is string or collection of keywords
 - All other arguments are string
 
 
