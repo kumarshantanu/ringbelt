@@ -76,14 +76,14 @@ Ringbelt has out of the box support for emitting JSON response.
 |     401     | `response/text-401` | `[type realm] [response type realm]`             |
 |     403     | `response/text-403` | `[body] [response body]`                         |
 |     404     | `response/text-404` | `[body] [response body]`                         |
-|     405     | `response/text-405` | `[method supported] [response method supported]` |
+|     405     | `response/text-405` | `[method allowed] [response method allowed]` |
 |     500     | `response/text-500` | `[body] [response body]`                         |
 |     503     | `response/text-503` | `[body] [response body]`                         |
 
 **Note**
 - `response` is Ring response map
 - `method` is string or keyword
-- `supported` is string or collection of keywords
+- `allowed` is string or collection of keywords
 - All other arguments are string
 
 
