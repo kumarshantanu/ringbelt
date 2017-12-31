@@ -12,8 +12,9 @@
   :pedantic? :abort
   :profiles {:dev {:dependencies [[ring/ring-mock "0.3.2"
                                    :exclusions [org.clojure/clojure]]]}
-             :provided {:dependencies [[org.clojure/clojure "1.8.0"]]}
+             :provided {:dependencies [[org.clojure/clojure "1.7.0"]]}
              :c17 {:dependencies [[org.clojure/clojure "1.7.0"]]}
              :c18 {:dependencies [[org.clojure/clojure "1.8.0"]]}
              :c19 {:dependencies [[org.clojure/clojure "1.9.0"]]}
-             :dln {:jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+             :dln {:jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
+  :aliases {"clj-test" ["with-profile" "c17,dev:c18,dev:c19,dev" "test"]})
